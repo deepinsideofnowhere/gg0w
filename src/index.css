@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+@import 'medeo-font/sans.css';
+
+@theme {
+  --font-sans: 'Medeo Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Lora', ui-serif, Georgia, serif;
+
+  --color-ink: #0e0e0f;
+  --color-surface: #18181a;
+  --color-line: #2a2a2d;
+  --color-muted: #9a9aa0;
+  --color-accent: #24a1de;
+  --color-accent-dark: #1d82b2;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink font-sans text-neutral-100 antialiased;
+  }
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+
+  /* Tailwind v4 сбрасывает курсор у кнопок на default — возвращаем pointer всем кликабельным */
+  a[href],
+  button:not(:disabled),
+  [role='button'],
+  [role='tab'],
+  label[for],
+  select,
+  summary {
+    cursor: pointer;
+  }
+  :disabled {
+    cursor: not-allowed;
+  }
+}
