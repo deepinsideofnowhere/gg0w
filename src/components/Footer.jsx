@@ -8,7 +8,6 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto border-t border-line/60 bg-ink">
-      {/* на мобильных всё в столбик по центру, с md — в строку */}
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-10 sm:px-6 md:flex-row md:justify-between lg:px-8">
         <div>
           <img
@@ -21,7 +20,6 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-col items-center gap-4 text-sm md:flex-row">
-          <Link to={path('/about')} className="text-neutral-300 hover:text-white">{t.nav.about}</Link>
           <Link
             to={path('/donate')}
             className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-white transition hover:bg-accent-dark"

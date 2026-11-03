@@ -90,7 +90,6 @@ function WalletPanel({ id, network, address, children }) {
       await navigator.clipboard.writeText(address)
       setCopyState('copied')
     } catch {
-      // нет доступа к буферу (http, старый браузер) — выделяем, чтобы скопировать вручную
       e.currentTarget.previousElementSibling?.select()
       setCopyState('selected')
     }

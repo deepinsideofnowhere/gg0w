@@ -43,7 +43,6 @@ export default {
     readTime: (n) => `${n} мин чтения`,
     read: 'Читать →',
     back: '← Все записи',
-    // русский — язык оригинала, плашка «не переведено» здесь не показывается
     notTranslated: '',
     originalLink: '',
     supportTitle: 'Понравилась статья?',

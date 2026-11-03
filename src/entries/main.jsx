@@ -14,6 +14,5 @@ const app = (
   </StrictMode>
 )
 
-// на собранном сайте HTML уже есть (scripts/prerender.js), в dev-режиме #root пустой
 if (root.hasChildNodes()) hydrateRoot(root, app)
 else createRoot(root).render(app)

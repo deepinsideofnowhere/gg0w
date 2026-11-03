@@ -8,7 +8,6 @@ import Car from '../pages/Car'
 import Donate from '../pages/Donate'
 import NotFound from '../pages/NotFound'
 
-// одинаковый набор страниц для каждого языка
 const pages = (
   <>
     <Route index element={<Home />} />

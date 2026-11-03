@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useI18n } from '../i18n'
 
-const LIGHTBOX_TILT = 0.4 // в попапе наклон слабее, чем в статье — фото крупное
+const LIGHTBOX_TILT = 0.4 
 
-// Попап с фотографией. images: [{ src, alt, caption, angle }]
 export default function Lightbox({ images, index, onChange, onClose }) {
   const { t } = useI18n()
   const image = images[index]
@@ -24,7 +23,6 @@ export default function Lightbox({ images, index, onChange, onClose }) {
     return () => document.removeEventListener('keydown', onKey)
   })
 
-  // блокируем прокрутку страницы под попапом
   useEffect(() => {
     const { overflow } = document.body.style
     document.body.style.overflow = 'hidden'

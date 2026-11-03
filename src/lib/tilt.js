@@ -1,12 +1,7 @@
-// Наклон фотографий в статье — «приложенные бумажные фото».
-// Угол псевдослучайный, но детерминированный (зависит от пути к файлу),
-// поэтому не меняется между рендерами и визитами.
-
-const MIN_ANGLE = 1 // меньше — выглядит как случайный перекос, а не наклон
+const MIN_ANGLE = 1
 const MAX_ANGLE = 5
-const MIN_DIFF = 1 // соседние фото должны заметно отличаться по углу
+const MIN_DIFF = 1 
 
-// FNV-1a: строка → 32-битный seed
 function hash(str) {
   let h = 0x811c9dc5
   for (let i = 0; i < str.length; i++) {
@@ -16,7 +11,6 @@ function hash(str) {
   return h >>> 0
 }
 
-// mulberry32: seed → генератор чисел [0, 1)
 function random(seed) {
   return () => {
     seed = (seed + 0x6d2b79f5) | 0
@@ -26,8 +20,6 @@ function random(seed) {
   }
 }
 
-// Углы для списка фото одной статьи: направление чередуется,
-// величина от MIN_ANGLE до MAX_ANGLE и отличается от предыдущей минимум на MIN_DIFF.
 export function tiltAngles(srcs) {
   let prev = 0
   return srcs.map((src, i) => {
@@ -42,8 +34,6 @@ export function tiltAngles(srcs) {
   })
 }
 
-// Доля ширины контейнера, при которой повёрнутое фото (с рамкой) в него помещается.
-// Вертикальные кадры дополнительно ужимаем, чтобы не растягивались на несколько экранов.
 export function fitWidth(width, height, angle) {
   const ratio = width && height ? height / width : 3 / 4
   const rad = (Math.abs(angle) * Math.PI) / 180

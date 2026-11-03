@@ -1,6 +1,5 @@
 import { asset } from '../lib/base'
 
-// Обложка поста. Если post.cover не задан — плейсхолдер на фоне асфальта.
 export default function PostCover({ post, className = '' }) {
   if (post.cover) {
     return <img src={asset(post.cover)} alt="" loading="lazy" className={`object-cover ${className}`} />

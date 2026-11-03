@@ -24,7 +24,6 @@
     background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
   }
 
-  /* Tailwind v4 сбрасывает курсор у кнопок на default — возвращаем pointer всем кликабельным */
   a[href],
   button:not(:disabled),
   [role='button'],

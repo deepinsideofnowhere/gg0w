@@ -3,7 +3,6 @@ import SEO from '../components/SEO'
 import { carPost, getPostText } from '../data/posts'
 import { useI18n } from '../i18n'
 
-// Страница «Об автомобиле»: /car, /ru/car
 export default function Car() {
   const { lang } = useI18n()
   const text = getPostText(carPost, lang)

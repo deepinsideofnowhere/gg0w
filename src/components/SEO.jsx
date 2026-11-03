@@ -5,17 +5,11 @@ const SITE_NAME = 'Mitsubishi Outlander PHEV'
 const DEFAULT_IMAGE = '/assets/posts/car/01.jpg'
 const AUTHOR = 'deepinsideofnowhere'
 
-// Теги для поисковиков и соцсетей. React поднимает их в <head>, при сборке они попадают в HTML.
-//   title       — заголовок страницы, без него общий заголовок блога
-//   article     — { date, section }: страница статьи, добавляет разметку BlogPosting
-//   website     — главная, добавляет разметку WebSite
-//   noindex     — не индексировать
-//   alternates  — false, если у страницы нет версии на другом языке
 export default function SEO({ title, description, image = DEFAULT_IMAGE, article, website, noindex, alternates = true }) {
   const { lang, t } = useI18n()
   const links = useAlternates().map((alt) => ({ lang: alt.lang, href: SITE_URL + alt.to }))
   const canonical = links.find((link) => link.lang === lang).href
-  const defaultHref = links[0].href // первый язык в LANGS — английский, язык по умолчанию
+  const defaultHref = links[0].href
 
   const fullTitle = title ? `${title} — ${SITE_NAME}` : t.seo.title
   const summary = description ?? t.seo.description

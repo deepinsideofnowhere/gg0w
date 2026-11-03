@@ -6,7 +6,6 @@ import { getPost, getPostText, posts } from '../data/posts'
 import { localePath, useI18n } from '../i18n'
 import NotFound from './NotFound'
 
-// Шаблон страницы поста: /posts/:slug, /ru/posts/:slug
 export default function Post() {
   const { slug } = useParams()
   const { lang, t, path, formatDate } = useI18n()
@@ -17,11 +16,9 @@ export default function Post() {
   const text = getPostText(post, lang)
   const translated = text.lang === lang
   const related = posts.filter((p) => p.slug !== slug).slice(0, 3)
-  // обложка (post.cover) в самом посте не показывается — только в карточках и превью для соцсетей
 
   return (
     <>
-      {/* непереведённая страница дублирует оригинал — не индексируем */}
       <SEO
         title={text.title}
         description={text.excerpt}

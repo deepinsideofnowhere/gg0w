@@ -5,9 +5,6 @@ import { BASE, asset } from '../lib/base'
 import { fitWidth, tiltAngles } from '../lib/tilt'
 import Lightbox from './Lightbox'
 
-// Рендер тела поста из массива блоков (см. формат в src/data/posts.js).
-// У абзаца либо text, либо html — в html допустимы только a, b, i, del, br.
-// Внутренние ссылки в html пишутся без языка (/posts/slug) — префикс подставляется здесь.
 export default function PostContent({ blocks }) {
   const navigate = useNavigate()
   const { t, path } = useI18n()
@@ -22,7 +19,6 @@ export default function PostContent({ blocks }) {
     }
   }, [blocks])
 
-  // внутренние ссылки внутри html-абзацев — через роутер, без перезагрузки страницы
   const onClick = (e) => {
     const link = e.target.closest('a')
     const href = link?.getAttribute('href')

@@ -24,7 +24,6 @@ function LangSwitch() {
   )
 }
 
-// Бургер из двух полосок: при открытии они поворачиваются и складываются в крестик
 function Burger({ open }) {
   const bar = 'absolute left-0 h-[3px] w-full rounded-full bg-current transition-transform duration-300 ease-out motion-reduce:transition-none'
   return (
@@ -35,7 +34,6 @@ function Burger({ open }) {
   )
 }
 
-// Мобильное меню: панель на весь экран под шапкой, выезжает справа, пункты появляются по очереди
 function MobileMenu({ open, onClose }) {
   const { t, path } = useI18n()
   const items = [
@@ -49,7 +47,6 @@ function MobileMenu({ open, onClose }) {
   })
 
   return (
-    // внешний слой обрезает уехавшую вправо панель, чтобы у страницы не было горизонтальной прокрутки
     <div className={`fixed inset-x-0 top-16 bottom-0 z-40 overflow-hidden md:hidden ${open ? '' : 'pointer-events-none'}`}>
       <div
         id="mobile-menu"
@@ -89,7 +86,6 @@ export default function Header() {
 
   useEffect(() => setOpen(false), [pathname])
 
-  // пока меню открыто: страница не прокручивается, Esc закрывает, на десктопной ширине меню закрывается само
   useEffect(() => {
     if (!open) return
     const { overflow } = document.body.style
@@ -110,7 +106,6 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-line/60 bg-ink/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          {/* на узких экранах логотип ужимается, чтобы не налезать на кнопку «Поддержать» */}
           <Link to={path('/')} aria-label={t.nav.home} className="min-w-0 shrink">
             <img
               src={asset('/assets/images/logo.svg')}
@@ -122,9 +117,6 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center gap-3 md:gap-8">
-            <Link to={path('/about')} className="hidden text-sm text-neutral-300 transition hover:text-white md:block">
-              {t.nav.about}
-            </Link>
             <Link to={path('/car')} className="hidden text-sm text-neutral-300 transition hover:text-white md:block">
               {t.nav.car}
             </Link>
@@ -151,7 +143,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* вне <header>: backdrop-blur у шапки ломает position: fixed у вложенных элементов */}
       <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   )

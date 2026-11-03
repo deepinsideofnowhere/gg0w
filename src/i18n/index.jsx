@@ -1,6 +1,3 @@
-// Языки сайта. Язык определяется только URL:
-//   английский (по умолчанию) — без префикса: /, /posts/:slug, /about, /donate
-//   русский                   — с префиксом:  /ru, /ru/posts/:slug, /ru/about, /ru/donate
 import { createContext, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import en from './en'
@@ -13,14 +10,11 @@ const DICTS = { en, ru }
 const LangContext = createContext(DEFAULT_LANG)
 export const LangProvider = LangContext.Provider
 
-// '/posts/x' → '/ru/posts/x' для русского, без изменений для английского.
-// Главная — '/ru/' со слешем: так она лежит на GitHub Pages, без лишнего редиректа
 export function localePath(lang, path) {
   if (lang === DEFAULT_LANG) return path
   return `/${lang}${path}`
 }
 
-// текущий путь без языкового префикса
 function stripLang(pathname) {
   for (const lang of LANGS) {
     if (lang === DEFAULT_LANG) continue
@@ -41,9 +35,8 @@ export function useI18n() {
   }
 }
 
-// ссылки «эта же страница на других языках» для переключателя
 export function useAlternates() {
   const { pathname } = useLocation()
-  const base = stripLang(pathname).replace(/(?<=.)\/$/, '') // без слеша на конце, кроме корня
+  const base = stripLang(pathname).replace(/(?<=.)\/$/, '')
   return LANGS.map((lang) => ({ lang, to: localePath(lang, base) }))
 }

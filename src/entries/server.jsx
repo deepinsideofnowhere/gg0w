@@ -1,4 +1,3 @@
-// Точка входа для пререндера (scripts/prerender.js)
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { posts } from '../data/posts'
@@ -8,8 +7,6 @@ import App from './App'
 
 export { BASE, LANGS, SITE_URL, localePath }
 
-// Страницы сайта без языкового префикса. lastmod — для sitemap.
-// /about пока не индексируем: на странице заглушка вместо CV.
 export const pages = [
   { path: '/', lastmod: posts[0].date },
   { path: '/car' },
