@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n'
+import { openCookieSettings } from '../lib/analytics'
 import { asset } from '../lib/base'
 
 export default function Footer() {
@@ -30,6 +31,9 @@ export default function Footer() {
       </div>
       <div className="flex flex-col items-center gap-2 border-t border-line/60 px-4 py-4 text-center text-xs text-muted sm:px-6 md:flex-row md:justify-between lg:px-8">
         <p>{t.footer.tagline}</p>
+        <button type="button" onClick={openCookieSettings} className="underline-offset-4 hover:text-white hover:underline">
+          {t.cookies.settings}
+        </button>
         <p suppressHydrationWarning>© {year} Outlander PHEV Blog</p>
       </div>
     </footer>

@@ -3,12 +3,15 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { LangProvider } from '../i18n'
 import Header from './Header'
 import Footer from './Footer'
+import CookieBanner from './CookieBanner'
+import { trackPageView } from '../lib/analytics'
 
 export default function Layout({ lang }) {
   const { pathname } = useLocation()
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    trackPageView()
   }, [pathname])
 
   useEffect(() => {
@@ -23,6 +26,7 @@ export default function Layout({ lang }) {
           <Outlet />
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </LangProvider>
   )

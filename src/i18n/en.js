@@ -24,6 +24,14 @@ export default {
     support: 'Support the blog',
   },
 
+  cookies: {
+    title: 'Cookies and analytics',
+    text: 'I use Google Analytics to see which posts people read. It sets cookies and sends visit data to Google: pages viewed, device, browser and approximate location. Nothing is collected without your consent.',
+    accept: 'Accept',
+    decline: 'Decline',
+    settings: 'Cookie settings',
+  },
+
   hero: {
     toPosts: 'To posts',
   },
