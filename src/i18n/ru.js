@@ -15,8 +15,8 @@ export default {
   },
 
   seo: {
-    title: 'Блог о Mitsubishi Outlander PHEV: доработки, электрика и мультимедиа',
-    description: 'Личный блог владельца Mitsubishi Outlander PHEV (GG2W): установка контроля слепых зон и кругового обзора, Mitsubishi Connect, кодинг ETACS, схемы проводки и ремонт своими руками.',
+    title: 'Блог о Mitsubishi Outlander PHEV (GG2W, GG3W): доработки, электрика и мультимедиа',
+    description: 'Личный блог владельца Mitsubishi Outlander PHEV (Outlander 3, GG2W/GG3W, 2012–2022): установка контроля слепых зон и кругового обзора, Mitsubishi Connect, кодинг ETACS, схемы проводки и ремонт своими руками.',
   },
 
   footer: {

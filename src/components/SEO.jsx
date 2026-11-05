@@ -4,6 +4,9 @@ import { SITE_URL } from '../lib/base'
 const SITE_NAME = 'Mitsubishi Outlander PHEV'
 const DEFAULT_IMAGE = '/assets/posts/car/01.jpg'
 const AUTHOR = 'deepinsideofnowhere'
+const MODELS = ['Outlander PHEV GG2W', 'Outlander PHEV GG3W', 'Outlander 3']
+const YEARS = Array.from({ length: 11 }, (_, i) => `Outlander PHEV ${2012 + i}`)
+const KEYWORDS = ['Mitsubishi Outlander PHEV', ...MODELS, ...YEARS].join(', ')
 
 export default function SEO({ title, description, image = DEFAULT_IMAGE, article, website, noindex, alternates = true }) {
   const { lang, t } = useI18n()
@@ -29,7 +32,8 @@ export default function SEO({ title, description, image = DEFAULT_IMAGE, article
             inLanguage: lang,
             mainEntityOfPage: canonical,
             articleSection: article.section,
-            about: { '@type': 'Thing', name: SITE_NAME },
+            keywords: KEYWORDS,
+            about: { '@type': 'Car', name: SITE_NAME, alternateName: MODELS, manufacturer: 'Mitsubishi Motors' },
             author: { '@type': 'Person', name: AUTHOR },
           },
           {
@@ -54,6 +58,7 @@ export default function SEO({ title, description, image = DEFAULT_IMAGE, article
     <>
       <title>{fullTitle}</title>
       <meta name="description" content={summary} />
+      <meta name="keywords" content={KEYWORDS} />
       {noindex && <meta name="robots" content="noindex" />}
       {!noindex && <link rel="canonical" href={canonical} />}
       {!noindex && alternates && links.map((link) => (

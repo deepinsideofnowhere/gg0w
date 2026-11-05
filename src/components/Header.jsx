@@ -37,10 +37,9 @@ function Burger({ open }) {
 function MobileMenu({ open, onClose }) {
   const { t, path } = useI18n()
   const items = [
-    { to: path('/about'), label: t.nav.about },
+    // { to: path('/about'), label: t.nav.about },
     { to: path('/car'), label: t.nav.car },
   ]
-  // пункты и язык въезжают с задержкой после панели и исчезают сразу
   const reveal = (i) => ({
     className: `transition duration-500 ease-out motion-reduce:transition-none ${open ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`,
     style: { transitionDelay: open ? `${150 + i * 70}ms` : '0ms' },

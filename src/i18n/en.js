@@ -15,8 +15,8 @@ export default {
   },
 
   seo: {
-    title: 'Mitsubishi Outlander PHEV Blog: DIY Retrofits, Electrics and Multimedia',
-    description: 'Owner’s blog about the Mitsubishi Outlander PHEV (GG2W): retrofitting blind spot warning and surround view, Mitsubishi Connect, ETACS coding, wiring diagrams and DIY repairs.',
+    title: 'Mitsubishi Outlander PHEV Blog (GG2W, GG3W): DIY Retrofits, Electrics and Multimedia',
+    description: 'Owner’s blog about the Mitsubishi Outlander PHEV (Outlander 3, GG2W/GG3W, 2012–2022): retrofitting blind spot warning and surround view, Mitsubishi Connect, ETACS coding, wiring diagrams and DIY repairs.',
   },
 
   footer: {
